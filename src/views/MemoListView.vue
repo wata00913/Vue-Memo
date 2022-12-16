@@ -1,6 +1,7 @@
 <script setup>
+import MemoList from "../components/MemoList.vue"
 </script>
 
 <template>
-  <h1>MemoList</h1>
+  <MemoList />
 </template>

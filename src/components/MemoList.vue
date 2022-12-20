@@ -1,5 +1,11 @@
 <script setup>
 import { ref, computed } from "vue";
+import MemoEdit from "./MemoEdit.vue";
+
+const isEdit = ref(false);
+function toggleEdit() {
+  isEdit.value = !isEdit.value;
+}
 
 function title(memo) {
   return memo.content.split("\n")[0];
@@ -20,7 +26,8 @@ function create() {
 
 <template>
   <div v-for="memo in memoList" :key="memo.id">
-    {{ title(memo) }}
+    <span @click="toggleEdit">{{ title(memo) }}</span>
   </div>
   <p><span style="cursor: pointer" @click="create">+</span></p>
+  <MemoEdit v-if="isEdit" />
 </template>

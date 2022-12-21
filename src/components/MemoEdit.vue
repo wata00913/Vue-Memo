@@ -1,20 +1,27 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, defineEmits } from "vue";
 
-const memo = ref({
-  id: 1,
-  content: "メモタイトル行です。\n 本文はこちらから。",
+const emit = defineEmits(["update", "destroy"]);
+const props = defineProps({
+  memo: {
+    type: Object,
+    required: false,
+  },
 });
 
+const content = ref(props.memo.content);
+
+// event
 function save() {
-  console.log(memo.value.content);
-  alert(memo.value.content);
+  emit("update", content.value);
+}
+function destroy() {
+  emit("destroy");
 }
 </script>
 
 <template>
-  <textarea v-model="memo.content"></textarea>
+  <textarea v-model="content"></textarea>
   <button @click="save">保存</button>
-  <button>削除</button>
-  {{ memo.content }}
+  <button @click="destroy">削除</button>
 </template>

@@ -1,8 +1,19 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import { ref, provide } from "vue";
+
+const isLoggedIn = ref(false);
+provide("isLoggedIn", isLoggedIn);
+
+// event
+function toggleLogIn() {
+  isLoggedIn.value = !isLoggedIn.value;
+}
 </script>
 
 <template>
+  <button v-if="isLoggedIn" @click="toggleLogIn">ログアウト</button>
+  <button v-else @click="toggleLogIn">ログイン</button>
   <RouterView />
 </template>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps } from "vue";
+import { defineEmits, defineProps, inject } from "vue";
 import { RouterLink } from "vue-router";
 
 const emit = defineEmits(["create"]);
@@ -14,6 +14,8 @@ function title(memo) {
   return memo.content.split("\n")[0];
 }
 
+const isLoggedIn = inject("isLoggedIn");
+
 function create() {
   emit("create");
 }
@@ -26,5 +28,7 @@ function create() {
       title(memo, idx)
     }}</router-link>
   </div>
-  <p><span style="cursor: pointer" @click="create">+</span></p>
+  <p>
+    <span v-if="isLoggedIn" style="cursor: pointer" @click="create">+</span>
+  </p>
 </template>

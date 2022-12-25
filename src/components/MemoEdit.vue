@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits, watch } from "vue";
+import { ref, defineEmits, watch, inject } from "vue";
 
 const emit = defineEmits(["update", "destroy"]);
 const props = defineProps({
@@ -18,6 +18,8 @@ watch(
   }
 );
 
+const isLoggedIn = inject("isLoggedIn");
+
 // event
 function save() {
   emit("update", content.value);
@@ -28,7 +30,7 @@ function destroy() {
 </script>
 
 <template>
-  <textarea v-model="content"></textarea>
-  <button @click="save">保存</button>
-  <button @click="destroy">削除</button>
+  <textarea v-model="content" :disabled="!isLoggedIn"></textarea>
+  <button v-if="isLoggedIn" @click="save">保存</button>
+  <button v-if="isLoggedIn" @click="destroy">削除</button>
 </template>

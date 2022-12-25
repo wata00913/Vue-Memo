@@ -1,7 +1,23 @@
 <script setup>
-import MemoList from "../components/MemoList.vue"
+import { useRouter } from "vue-router";
+import MemoList from "../components/MemoList.vue";
+import * as record from "../memo-record.js";
+
+const router = useRouter();
+
+//state
+const memoList = record.all();
+
+//event
+function create() {
+  const content = `メモ${memoList.value.length + 1}`;
+  record.create(content);
+
+  const created = memoList.value.slice(-1)[0];
+  router.push({ name: "memoEdit", params: { id: created.id } });
+}
 </script>
 
 <template>
-  <MemoList />
+  <MemoList :memo-list="memoList" @create="create" />
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits } from "vue";
+import { ref, defineEmits, watch } from "vue";
 
 const emit = defineEmits(["update", "destroy"]);
 const props = defineProps({
@@ -10,6 +10,13 @@ const props = defineProps({
 });
 
 const content = ref(props.memo.content);
+// ルーティングで変更されたメモを監視し、contentを更新する。
+watch(
+  () => props.memo,
+  (changedMemo) => {
+    content.value = changedMemo.content;
+  }
+);
 
 // event
 function save() {

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MemoListView from "../views/MemoListView.vue";
+import MemoEditView from "../views/MemoEditView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +14,12 @@ const router = createRouter({
       path: "/memo-list",
       name: "memoList",
       component: MemoListView,
-    }
+    },
+    {
+      path: "/memo-list/:id",
+      name: "memoEdit",
+      component: MemoEditView,
+    },
   ],
 });
 

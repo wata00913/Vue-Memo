@@ -7,7 +7,7 @@ const emit = defineEmits(["create"]);
 // props
 const props = defineProps({
   memoList: { type: Array, required: true },
-  selectedId: { type: Number },
+  selectedId: { type: String },
 });
 
 function title(memo) {

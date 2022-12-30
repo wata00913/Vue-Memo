@@ -1,6 +1,7 @@
 // モック
 
 import { ref } from "vue";
+import { v4 as uuidv4 } from "uuid";
 
 const memoList = ref([]);
 
@@ -12,8 +13,7 @@ export function all() {
 }
 
 export function create(content) {
-  const newIdx = memoList.value.length + 1;
-  const memo = { id: newIdx, content: content };
+  const memo = { id: uuidv4(), content: content };
   memoList.value.push(memo);
   save(memoList);
 }

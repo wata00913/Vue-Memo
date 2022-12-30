@@ -7,7 +7,7 @@ import * as record from "../memo-record.js";
 
 const route = useRoute();
 const router = useRouter();
-const paramId = () => parseInt(route.params.id);
+const paramId = () => route.params.id;
 
 // state
 const memoList = record.all();

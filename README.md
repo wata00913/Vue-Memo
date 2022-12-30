@@ -1,35 +1,23 @@
 # Vue-Memo
+フィヨルドブートキャンプのプラクティス「create-vue」の課題になります。
+Vue.jsを用いた簡易的なメモアプリです。
+## インストール
+リポジトリを`git clone`します。
+```
+git clone https://github.com/wata00913/Vue-Memo.git
+```
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+## 環境設定
+インストールしたリポジトリのディレクトリに移動し、以下のnpmコマンドを実行します。
+```
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+## メモアプリの起動
+以下のコマンドを実行し、ローカル環境でWebサーバーを起動します。
+カレントディレクトリは、環境設定と同様にインストールしたリポジトリです。
+```
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+ブラウザを起動し、`http://localhost:5173`にアクセスします。

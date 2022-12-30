@@ -2,17 +2,11 @@
 
 import { ref } from "vue";
 
-const defaultData = [
-  { id: 1, content: "メモです.\n 今日のプラクティス" },
-  { id: 2, content: "昨日のメモ.\n Javascript" },
-  { id: 3, content: "タイトルのみ" },
-];
-
 const memoList = ref([]);
 
 export function all() {
   const rawDataStr = window.localStorage.getItem("memoList");
-  const rawData = rawDataStr ? JSON.parse(rawDataStr) : defaultData;
+  const rawData = rawDataStr ? JSON.parse(rawDataStr) : [];
   memoList.value.splice(0, memoList.value.length, ...rawData);
   return memoList;
 }

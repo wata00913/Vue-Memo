@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MemoListView from "../views/MemoListView.vue";
 import MemoEditView from "../views/MemoEditView.vue";
+import NotFoundView from "../views/NotFoundView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,6 +20,11 @@ const router = createRouter({
       path: "/memo-list/:id",
       name: "memoEdit",
       component: MemoEditView,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "notFound",
+      component: NotFoundView,
     },
   ],
 });

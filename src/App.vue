@@ -15,6 +15,9 @@ function toggleLogIn() {
   <button v-if="isLoggedIn" @click="toggleLogIn">ログアウト</button>
   <button v-else @click="toggleLogIn">ログイン</button>
   <RouterView />
+  <div>
+    <router-link :to="{ name: 'home' }">ホーム</router-link>
+  </div>
 </template>
 
 <style scoped>

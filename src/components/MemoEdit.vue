@@ -30,7 +30,11 @@ function destroy() {
 </script>
 
 <template>
-  <textarea v-model="content" :disabled="!isLoggedIn"></textarea>
-  <button v-if="isLoggedIn" @click="save">保存</button>
-  <button v-if="isLoggedIn" @click="destroy">削除</button>
+  <textarea
+    v-model="content"
+    :disabled="!isLoggedIn"
+    class="textarea"
+  ></textarea>
+  <button v-if="isLoggedIn" @click="save" class="button">保存</button>
+  <button v-if="isLoggedIn" @click="destroy" class="button">削除</button>
 </template>

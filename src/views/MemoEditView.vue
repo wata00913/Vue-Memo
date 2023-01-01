@@ -47,6 +47,16 @@ function destroy() {
 </script>
 
 <template>
-  <MemoList :memoList="memoList" :selectedId="selectedId" @create="create" />
-  <MemoEdit :memo="memo" @update="update" @destroy="destroy" />
+  <div class="columns is-vcentered">
+    <div class="column is-one-third">
+      <MemoList
+        :memoList="memoList"
+        :selectedId="selectedId"
+        @create="create"
+      />
+    </div>
+    <div class="column is-two-third">
+      <MemoEdit :memo="memo" @update="update" @destroy="destroy" />
+    </div>
+  </div>
 </template>

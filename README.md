@@ -20,4 +20,5 @@ npm install
 npm run dev
 ```
 
-ブラウザを起動し、`http://localhost:5173`にアクセスします。
+ブラウザを起動し、`http://localhost:ポート番号`にアクセスします。
+`ポート番号`は、Webサーバー起動後のコンソールに`Local: http://localhost:XXXX/`と表示されるので、`XXXX`のポート番号を指定してください。

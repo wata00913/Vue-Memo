@@ -11,7 +11,14 @@ const props = defineProps({
 });
 
 function title(memo) {
-  return memo.content.split("\n")[0];
+  const tentativeTitle = "タイトル未入力";
+
+  if (memo.content === "") {
+    return tentativeTitle;
+  }
+
+  const title = memo.content.split("\n")[0];
+  return title === "" ? tentativeTitle : title;
 }
 
 const isLoggedIn = inject("isLoggedIn");

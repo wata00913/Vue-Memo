@@ -28,7 +28,7 @@ function init(id) {
 
 // event
 function create() {
-  const content = `メモ${memoList.value.length + 1}`;
+  const content = "";
   record.create(content);
 
   const created = memoList.value.slice(-1)[0];
